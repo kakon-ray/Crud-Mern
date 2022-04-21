@@ -9,6 +9,21 @@ const Adduser = () => {
     const user = { name, email };
 
     // send to the server side
+
+    fetch("http://localhost:5000/user", {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
   return (
     <div>
