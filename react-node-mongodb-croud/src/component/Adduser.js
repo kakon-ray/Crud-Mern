@@ -11,18 +11,17 @@ const Adduser = () => {
     // send to the server side
 
     fetch("http://localhost:5000/user", {
-      method: "POST", // or 'PUT'
+      method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "content-type": "application/json",
       },
       body: JSON.stringify(user),
     })
-      .then((response) => response.json())
+      .then((res) => res.json())
       .then((data) => {
-        console.log("Success:", data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
+        console.log("success", data);
+        alert("users added successfully!!!");
+        event.target.reset();
       });
   };
   return (
