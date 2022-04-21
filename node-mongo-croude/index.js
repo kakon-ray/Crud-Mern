@@ -40,7 +40,7 @@ async function run() {
       res.send(users);
     });
 
-    // update user
+    // user update data get then this data update put function
     app.get("/user/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: ObjectId(id) };
@@ -75,7 +75,7 @@ async function run() {
       res.send(result);
     });
 
-    // detelte user
+    // delete user
     app.delete("/user/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: ObjectId(id) };
