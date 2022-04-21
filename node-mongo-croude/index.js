@@ -32,6 +32,14 @@ async function run() {
     await client.connect();
     const userCollection = client.db("foodExpress").collection("user");
 
+    // get data to database this api call to show data clint side
+    app.get("/user", async (req, res) => {
+      const query = {};
+      const cursor = userCollection.find(query);
+      const users = await cursor.toArray();
+      res.send(users);
+    });
+
     // POST User : add a new user
     app.post("/user", async (req, res) => {
       const newUser = req.body;
