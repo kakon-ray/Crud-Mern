@@ -40,7 +40,7 @@ async function run() {
       res.send(users);
     });
 
-    // user update data get then this data update put function
+    // get data spesific id and this data show display and update put method
     app.get("/user/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: ObjectId(id) };
